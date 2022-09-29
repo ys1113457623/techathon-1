@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:techathon/controller/event_controller.dart';
+import 'package:techathon/view/screen/event.dart';
 import 'package:techathon/view/screen/filters_screen.dart';
 
 import 'package:techathon/view/widget/home/search_container.dart';
 import 'package:techathon/view/widget/home/upcoming.dart';
-import 'package:techathon/widgets/event_container.dart';
+import 'package:techathon/view/widget/event/event_container.dart';
+import 'package:techathon/view/widget/home/voucher.dart';
 
 import '../widget/home/filter_chip.dart';
 
@@ -127,7 +129,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   : CarouselSlider(
                       items: [
                           ...eventController.upcomingEvent.map((event) {
-                            return EventContainer(event: event);
+                            return GestureDetector(
+                                onTap: () {
+                                  Get.to(EventScreen());
+                                },
+                                child: EventContainer(event: event));
                           }).toList(),
                         ],
                       options: CarouselOptions(

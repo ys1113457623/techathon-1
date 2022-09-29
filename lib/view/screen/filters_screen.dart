@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:techathon/model/event.dart';
-import 'package:techathon/view/screen/history.dart';
-import 'package:techathon/view/screen/home.dart';
 
-import '../../controller/filter_controller.dart';
 import '../widget/home/filter_chip.dart';
 import 'event.dart';
 
@@ -18,8 +14,6 @@ class FilterScreen extends StatefulWidget {
 }
 
 class _FilterScreenState extends State<FilterScreen> {
-  List<String> added_item = [];
-  FilterListController filterController = Get.put(FilterListController());
   List<String> location_items = ["Online", "In Person"];
   List<String> status_items = ["Upcoming", "Open", "Ended"];
   List<String> length_items = ["1-6 Days", "2-4 Weeks", "1 month"];
@@ -37,10 +31,6 @@ class _FilterScreenState extends State<FilterScreen> {
     "Lifehacks",
     "Mobile"
   ];
-
-  void onint() {
-    print(filterController.getSelectedList());
-  }
 
   @override
   Widget build(BuildContext context) {
